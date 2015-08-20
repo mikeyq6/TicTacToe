@@ -26,6 +26,8 @@ namespace TicTacToe.Game
             _player1 = player1;
             _player2 = player2;
             _currentPlayer = player1;
+
+            InitializeBoard();
         }
 
         #region Properties
@@ -38,7 +40,12 @@ namespace TicTacToe.Game
                     _currentPlayer = Player1;
                 return _currentPlayer;
             }
+            set
+            {
+                _currentPlayer = value;
+            }
         }
+        public IPlayer WinningPlayer { get; set; }
 
         public IGameState GameState {
             get
@@ -106,7 +113,88 @@ namespace TicTacToe.Game
 
         public override List<Space> GetAvailableSpaces()
         {
-            throw new NotImplementedException();
+            return (from s in Spaces where s.State == SquareState.FREE select s).ToList();
         }
+
+        public override void MakeNextMove()
+        {
+            Space space = CurrentPlayer.NextMove(this);
+            if (space != null)
+            {
+                space.State = CurrentPlayer.PlayerToken;
+            }
+            if (WinDetected())
+                WinningPlayer = CurrentPlayer;
+            else
+                CurrentPlayer = CurrentPlayer == Player1 ? Player2 : Player1;
+        }
+
+        public override bool WinDetected()
+        {
+            bool result = false;
+
+            // Check columns
+            for (int i = 0; i < BoardWidth; i++)
+            {
+                Space col0 = SpaceAt(i, 0);
+                if (col0.State != SquareState.FREE)
+                {
+                    result = SpaceAt(i, 1).State == col0.State && SpaceAt(i, 2).State == col0.State;
+                }
+                if (result)
+                    return true;
+            }
+            // Check rows
+            for (int j = 0; j < BoardHeight; j++)
+            {
+                Space row0 = SpaceAt(0, j);
+                if (row0.State != SquareState.FREE)
+                {
+                    result = SpaceAt(1, j).State == row0.State && SpaceAt(2, j).State == row0.State;
+                }
+                if (result)
+                    return true;
+            }
+            // Check Diagonals
+            Space d0 = SpaceAt(0, 0);
+            if(d0.State != SquareState.FREE) {
+                result = d0.State == SpaceAt(1, 1).State && d0.State == SpaceAt(2, 2).State;
+            }
+            d0 = SpaceAt(2, 0);
+            if (d0.State != SquareState.FREE)
+            {
+                result = d0.State == SpaceAt(1, 1).State && d0.State == SpaceAt(0, 2).State;
+            }
+            return result;
+        }
+
+        public bool HasStarted()
+        {
+            return GameState.HasStarted(this);
+        }
+
+        public bool HasFinished()
+        {
+            return GameState.HasFinished(this) || WinDetected();
+        }
+
+        public override void ResetGame()
+        {
+            foreach (Space s in Spaces)
+            {
+                s.State = SquareState.FREE;
+            }
+            WinningPlayer = null;
+            CurrentPlayer = Player1;
+        }
+
+        #region Drawing methods
+
+        public void DrawBoardToOutput()
+        {
+            GameDrawer.DrawBoardToOutput(this);
+        }
+
+        #endregion
     }
 }

@@ -7,28 +7,31 @@ using TicTacToe.Interfaces;
 
 namespace TicTacToe.Game
 {
-    class ComputerPlayer : IPlayer
+    public class ComputerPlayer : IPlayer
     {
-        public ComputerPlayer(string playerName)
+        public ComputerPlayer(string playerName, SquareState token)
         {
             PlayerName = playerName;
+            PlayerToken = token;
+
         }
 
-        public System.Drawing.Point NextMove(IGameState gameState)
+        public Space NextMove(GenericTicTacToeGame game)
         {
-            throw new NotImplementedException();
+            Random r = new Random();
+
+            // Select a random square
+            List<Space> available = game.GetAvailableSpaces();
+
+            if(available.Count == 0)
+                return null;
+            else
+                return available.ElementAt(r.Next(0, available.Count-1));
         }
 
-        public string PlayerName
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string PlayerName { get; set; }
+
+
+        public SquareState PlayerToken { get; set; }
     }
 }

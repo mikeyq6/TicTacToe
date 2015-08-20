@@ -45,5 +45,11 @@ namespace TicTacToe.Game
         public abstract Space SpaceAt(int x, int y);
 
         public abstract List<Space> GetAvailableSpaces();
+
+        public abstract void MakeNextMove();
+
+        public abstract bool WinDetected();
+
+        public abstract void ResetGame();
     }
 }

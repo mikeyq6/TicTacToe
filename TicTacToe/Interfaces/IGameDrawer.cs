@@ -9,6 +9,8 @@ namespace TicTacToe.Interfaces
 {
     public interface IGameDrawer
     {
-        string DrawBoard(GenericTicTacToeGame game);
+        string DrawBoardToString(GenericTicTacToeGame game);
+
+        void DrawBoardToOutput(GenericTicTacToeGame game);
     }
 }

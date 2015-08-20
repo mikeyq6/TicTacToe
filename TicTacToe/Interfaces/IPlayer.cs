@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToe.Game;
 
 namespace TicTacToe.Interfaces
 {
@@ -13,7 +14,8 @@ namespace TicTacToe.Interfaces
     public interface IPlayer
     {
         string PlayerName { get; set; }
+        SquareState PlayerToken { get; set; }
 
-        Point NextMove(IGameState gameState);
+        Space NextMove(GenericTicTacToeGame game);
     }
 }

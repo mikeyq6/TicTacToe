@@ -12,7 +12,7 @@ namespace TicTacToe.Game
 
         public bool HasStarted(GenericTicTacToeGame game)
         {
-            return (from s in game.Spaces where !s.HasBeenPlayed() select s).FirstOrDefault() != default(Space);
+            return (from s in game.Spaces where s.HasBeenPlayed() select s).FirstOrDefault() != default(Space);
         }
 
         public bool HasFinished(GenericTicTacToeGame game)

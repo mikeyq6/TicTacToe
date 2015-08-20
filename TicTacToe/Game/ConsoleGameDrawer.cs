@@ -10,7 +10,7 @@ namespace TicTacToe.Game
     public class ConsoleGameDrawer : IGameDrawer
     {
 
-        public string DrawBoard(GenericTicTacToeGame game)
+        public string DrawBoardToString(GenericTicTacToeGame game)
         {
             StringBuilder str_sp = new StringBuilder();
 
@@ -34,6 +34,11 @@ namespace TicTacToe.Game
             }
 
             return str_sp.ToString();
+        }
+
+        public void DrawBoardToOutput(GenericTicTacToeGame game)
+        {
+            Console.Write(DrawBoardToString(game));
         }
     }
 }

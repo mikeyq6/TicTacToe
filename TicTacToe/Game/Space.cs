@@ -34,6 +34,10 @@ namespace TicTacToe.Game
             {
                 return _state;
             }
+            set
+            {
+                _state = value;
+            }
         }
 
         #endregion

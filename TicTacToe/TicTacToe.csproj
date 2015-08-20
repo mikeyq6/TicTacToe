@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\ComputerPlayer.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Interfaces\IGameDrawer.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Game\GenericTicTacToeGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

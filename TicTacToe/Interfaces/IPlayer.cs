@@ -12,6 +12,8 @@ namespace TicTacToe.Interfaces
     /// </summary>
     public interface IPlayer
     {
+        string PlayerName { get; set; }
+
         Point NextMove(IGameState gameState);
     }
 }

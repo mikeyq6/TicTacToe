@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace TicTacToe.Interfaces
 {
-    public interface IGameState
+    public interface IGameDrawer
     {
-        bool HasStarted();
-
-        bool HasFinished();
+        string DrawBoard(IGameState gameState);
     }
 }

@@ -1,1 +1,5 @@
 \\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.config
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb

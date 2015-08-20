@@ -11,14 +11,14 @@ namespace TicTacToe.Game
     {
         protected readonly int _boardWidth;
         protected readonly int _boardHeight;
-        protected List<Point> _spaces;
+        protected List<Space> _spaces;
 
 
         protected GenericTicTacToeGame(int width, int height)
         {
             _boardWidth = width;
             _boardHeight = height;
-            _spaces = new List<Point>();
+            _spaces = new List<Space>();
         }
 
         public int BoardWidth
@@ -36,12 +36,12 @@ namespace TicTacToe.Game
                 return _boardWidth;
             }
         }
-        public abstract List<Point> Spaces { get; }
+        public abstract List<Space> Spaces { get; }
 
         public abstract void InitializeBoard();
 
-        public abstract bool SpaceOccupied(Point point);
+        public abstract bool SpaceOccupied(Space square);
 
-        public abstract List<Point> GetAvailableSpaces();
+        public abstract List<Space> GetAvailableSpaces();
     }
 }

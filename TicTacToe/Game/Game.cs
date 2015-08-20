@@ -8,22 +8,37 @@ using TicTacToe.Interfaces;
 
 namespace TicTacToe.Game
 {
-    public class Game : GenericTicTacToeGame
+    public sealed class Game3x3 : GenericTicTacToeGame
     {
+        private const int WIDTH = 3;
+        private const int HEIGHT = 3;
+
         readonly IGameState _gameState;
         readonly IGameDrawer _gameDrawer;
         readonly IPlayer _player1;
         readonly IPlayer _player2;
+        private IPlayer _currentPlayer;
 
-        public Game(int width, int height, IGameState gameState, IGameDrawer gameDrawer, IPlayer player1, IPlayer player2) : base(width, height)
+        public Game3x3(IGameState gameState, IGameDrawer gameDrawer, IPlayer player1, IPlayer player2) : base(WIDTH, HEIGHT)
         {
             _gameState = gameState;
             _gameDrawer = gameDrawer;
             _player1 = player1;
             _player2 = player2;
+            _currentPlayer = player1;
         }
 
         #region Properties
+
+        public IPlayer CurrentPlayer
+        {
+            get
+            {
+                if (_currentPlayer == null)
+                    _currentPlayer = Player1;
+                return _currentPlayer;
+            }
+        }
 
         public IGameState GameState {
             get
@@ -65,7 +80,9 @@ namespace TicTacToe.Game
 
         #endregion
 
-
+        /// <summary>
+        /// Create a point for each square in the field
+        /// </summary>
         public override void InitializeBoard()
         {
             for (int i = 0; i < BoardWidth; i++)
@@ -82,7 +99,7 @@ namespace TicTacToe.Game
             throw new NotImplementedException();
         }
 
-        public override List<System.Drawing.Point> GetAvailableSpaces()
+        public override List<Space> GetAvailableSpaces()
         {
             throw new NotImplementedException();
         }

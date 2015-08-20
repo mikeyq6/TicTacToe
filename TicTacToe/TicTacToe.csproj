@@ -43,7 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\ComputerPlayer.cs" />
-    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Game3x3.cs" />
+    <Compile Include="Game\ConsoleGameDrawer.cs" />
+    <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Space.cs" />
     <Compile Include="Interfaces\IGameDrawer.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />

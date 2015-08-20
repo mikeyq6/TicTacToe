@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TicTacToe.Game;
 
 namespace TicTacToe.Tests
 {
@@ -9,13 +10,22 @@ namespace TicTacToe.Tests
         [TestMethod]
         public void TestGameHasStarted()
         {
+            
+
             throw new NotImplementedException();
+
+            //Game3x3 game = new Game3x3()
         }
 
         [TestMethod]
         public void TestDisplayBoard()
         {
-            throw new NotImplementedException();
+            string expected = string.Format("---{0}---{0}---{0}", Environment.NewLine);
+
+            GameState state = new GameState();
+            ConsoleGameDrawer drawer = new ConsoleGameDrawer();
+
+            Game3x3 game = new Game3x3(state, drawer, null, null);
         }
 
         [TestMethod]

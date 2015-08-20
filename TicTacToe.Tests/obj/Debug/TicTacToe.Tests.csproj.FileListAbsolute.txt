@@ -2,3 +2,6 @@
 \\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\bin\Debug\TicTacToe.Tests.pdb
 \\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.dll
 \\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.pdb
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\bin\Debug\TicTacToe.exe
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\bin\Debug\TicTacToe.pdb
+\\psf\home\documents\visual studio 2013\Projects\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.csprojResolveAssemblyReference.cache

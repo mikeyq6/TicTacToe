@@ -11,6 +11,7 @@ namespace TicTacToe
         static void Main(string[] args)
         {
             Console.Write("Any key to start");
+            Console.ReadKey();
         }
     }
 }

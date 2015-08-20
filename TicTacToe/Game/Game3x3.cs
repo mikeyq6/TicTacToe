@@ -71,7 +71,7 @@ namespace TicTacToe.Game
             }
         }
 
-        public override List<Point> Spaces
+        public override List<Space> Spaces
         {
             get {
                 return _spaces;
@@ -89,14 +89,19 @@ namespace TicTacToe.Game
             {
                 for (int j = 0; j < BoardHeight; j++)
                 {
-                    Spaces.Add(new Point(i, j));
+                    Spaces.Add(new Space(i, j));
                 }
             }
         }
 
-        public override bool SpaceOccupied(System.Drawing.Point point)
+        public override bool SpaceOccupied(Space space)
         {
             throw new NotImplementedException();
+        }
+
+        public override Space SpaceAt(int x, int y) 
+        {
+            return Spaces.SingleOrDefault(s => s.Location.X == x && s.Location.Y == y);
         }
 
         public override List<Space> GetAvailableSpaces()

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToe.Game;
 
 namespace TicTacToe.Interfaces
 {
     public interface IGameState
     {
-        bool HasStarted();
+        bool HasStarted(GenericTicTacToeGame game);
 
-        bool HasFinished();
+        bool HasFinished(GenericTicTacToeGame game);
     }
 }

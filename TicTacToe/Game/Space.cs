@@ -12,10 +12,35 @@ namespace TicTacToe.Game
         private Point _location;
         private SquareState _state;
 
-        public Space(Point location)
+        public Space(int x, int y)
         {
-            _location = location;
+            _location = new Point(x, y);
             _state = SquareState.FREE;
+        }
+
+        #region Properties
+
+        public Point Location
+        {
+            get
+            {
+                return _location;
+            }
+        }
+
+        public SquareState State
+        {
+            get
+            {
+                return _state;
+            }
+        }
+
+        #endregion
+
+        public bool HasBeenPlayed()
+        {
+            return _state != SquareState.FREE;
         }
     }
 

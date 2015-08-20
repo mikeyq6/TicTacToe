@@ -42,6 +42,8 @@ namespace TicTacToe.Game
 
         public abstract bool SpaceOccupied(Space square);
 
+        public abstract Space SpaceAt(int x, int y);
+
         public abstract List<Space> GetAvailableSpaces();
     }
 }

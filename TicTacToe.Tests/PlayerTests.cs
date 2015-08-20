@@ -10,9 +10,9 @@ namespace TicTacToe.Tests
         [TestMethod]
         public void TestGetNextMove()
         {
-            GameState state = new GameState();
-            ComputerPlayer player1 = new ComputerPlayer("Jim", SquareState.X);
-            ComputerPlayer player2 = new ComputerPlayer("Denise", SquareState.X);
+            GenericGameState state = new GenericGameState();
+            ComputerPlayer player1 = new ComputerPlayer("Jim", SpaceState.X);
+            ComputerPlayer player2 = new ComputerPlayer("Denise", SpaceState.X);
 
             Game3x3 game = new Game3x3(state, null, player1, player2);
             Space s = player1.NextMove(game);
@@ -23,9 +23,9 @@ namespace TicTacToe.Tests
         [TestMethod]
         public void TestNextMoveGameFinished()
         {
-            GameState state = new GameState();
-            ComputerPlayer player1 = new ComputerPlayer("Jim", SquareState.X);
-            ComputerPlayer player2 = new ComputerPlayer("Denise", SquareState.X);
+            GenericGameState state = new GenericGameState();
+            ComputerPlayer player1 = new ComputerPlayer("Jim", SpaceState.X);
+            ComputerPlayer player2 = new ComputerPlayer("Denise", SpaceState.X);
 
             Game3x3 game = new Game3x3(state, null, player1, player2);
             finishGame(game);
@@ -36,7 +36,7 @@ namespace TicTacToe.Tests
         private void finishGame(GenericTicTacToeGame game)
         {
             foreach(Space s in game.Spaces) {
-                s.State = SquareState.X;
+                s.State = SpaceState.X;
             }
         }
     }

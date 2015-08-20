@@ -11,13 +11,18 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Super-Awesome TicTacToe!!");
+            Console.WriteLine();
             Console.Write("Any key to start");
             Console.ReadKey();
 
-            GameState gameState = new GameState();
+            // Create these objects and inject them into the game object, such
+            // that the game has no idea about where it's drawing to, or what kind of players
+            // are playing (Human / Computer etc)
+            GenericGameState gameState = new GenericGameState();
             ConsoleGameDrawer drawer = new ConsoleGameDrawer();
-            ComputerPlayer player1 = new ComputerPlayer("Jim", SquareState.X);
-            ComputerPlayer player2 = new ComputerPlayer("Susan", SquareState.O);
+            ComputerPlayer player1 = new ComputerPlayer("Jim", SpaceState.X);
+            ComputerPlayer player2 = new ComputerPlayer("Susan", SpaceState.O);
 
             Game3x3 game = new Game3x3(gameState, drawer, player1, player2);
 

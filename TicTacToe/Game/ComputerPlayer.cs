@@ -7,14 +7,25 @@ using TicTacToe.Interfaces;
 
 namespace TicTacToe.Game
 {
+    /// <summary>
+    /// In this application, we have only one kind of player, a computer player. But we could just as easily added
+    /// a Human player implementation. The game doesn't care. All it wants is a player.
+    /// </summary>
     public class ComputerPlayer : IPlayer
     {
-        public ComputerPlayer(string playerName, SquareState token)
+        public ComputerPlayer(string playerName, SpaceState token)
         {
             PlayerName = playerName;
             PlayerToken = token;
-
         }
+
+        #region Properties
+
+        public string PlayerName { get; set; }
+
+        public SpaceState PlayerToken { get; set; }
+
+        #endregion
 
         public Space NextMove(GenericTicTacToeGame game)
         {
@@ -23,15 +34,10 @@ namespace TicTacToe.Game
             // Select a random square
             List<Space> available = game.GetAvailableSpaces();
 
-            if(available.Count == 0)
+            if(available.Count == 0) // None left
                 return null;
-            else
+            else // Get a random space from the remaining set
                 return available.ElementAt(r.Next(0, available.Count-1));
         }
-
-        public string PlayerName { get; set; }
-
-
-        public SquareState PlayerToken { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace TicTacToe.Interfaces
     public interface IPlayer
     {
         string PlayerName { get; set; }
-        SquareState PlayerToken { get; set; }
+        SpaceState PlayerToken { get; set; }
 
         Space NextMove(GenericTicTacToeGame game);
     }
